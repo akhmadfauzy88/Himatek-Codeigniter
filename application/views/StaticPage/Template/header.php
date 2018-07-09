@@ -14,7 +14,9 @@
 	<div class="container-fluid">
 		<div class="row justify-content-center">
 			<div class="col-md-10" id="header">
-				<img src="<?php echo base_url(); ?>assets/img/Himatek-Circle-1.png" class="img-fluid" alt="Responsive image">
+				<a href="<?php echo base_url(); ?>">
+					<img src="<?php echo base_url(); ?>assets/img/Himatek-Circle-1.png" class="img-fluid" alt="Responsive image">
+				</a>
 				<hr>
 				<div class="navi">
 					<a href="<?php echo base_url(); ?>">Home</a>
