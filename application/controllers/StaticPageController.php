@@ -35,6 +35,10 @@ class StaticPageController extends CI_Controller {
 		$data['posts'] = $this->posts->get_posts($slug);
 		$data['Judul'] = $data['posts']['judul'];
 
+		if($data['posts']['slug'] == NULL){
+			show_404();
+		}
+
 		$this->load->view('StaticPage/Template/header', $data);
 		$this->load->view('StaticPage/v_blog', $data);
 		$this->load->view('StaticPage/Template/footer');

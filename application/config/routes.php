@@ -63,5 +63,7 @@ $route['posts/view/(:any)'] = 'postscontroller/view/$1';
 $route['posts/create'] = 'postscontroller/create';
 $route['posts/store'] = 'postscontroller/upload';
 $route['posts/delete/(:any)'] = 'postscontroller/destroy/$1';
+$route['posts/edit/(:any)'] = 'postscontroller/edit/$1';
+$route['posts/edit'] = 'postscontroller/update';
 
 //Auth

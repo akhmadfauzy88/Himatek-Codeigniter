@@ -39,6 +39,23 @@ class Posts extends CI_Model {
 			return $this->db->insert('posts', $data);
         }
 
+        public function edit_posts()
+        {
+        	$date = date("Y-m-d H:i:s");
+			$data = array(
+				'judul' => $this->input->post('judul'),
+				'slug' => $this->input->post('slug'),
+				//'category' => $this->input->post('category'),
+				'body' => $this->input->post('body'),
+				'updated_at' => $date
+			);
+			
+			$id = $this->input->post('id');
+
+			$this->db->where('id', $id);
+			return $this->db->update('posts', $data);
+        }
+
         public function destroy($id)
         {
         	$this->db->delete('posts', array('id' => $id));
