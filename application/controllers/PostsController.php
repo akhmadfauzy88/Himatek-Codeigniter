@@ -72,7 +72,7 @@ class PostsController extends CI_Controller {
     public function update()
     {
     	$where = $this->input->post('id');
-    	$slug = $this->input->post['slug'];
+    	$slug = $this->input->post('slug');
 
     	$sql = 'select slug from posts where id = ?';
     	$query = $this->db->query($sql, $where);
