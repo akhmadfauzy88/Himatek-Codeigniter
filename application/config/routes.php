@@ -66,4 +66,9 @@ $route['posts/delete/(:any)'] = 'postscontroller/destroy/$1';
 $route['posts/edit/(:any)'] = 'postscontroller/edit/$1';
 $route['posts/edit'] = 'postscontroller/update';
 
+$route['login'] = 'encryptcontroller';
+$route['regist'] = 'encryptcontroller/regist';
+$route ['login/user'] = 'encryptcontroller/user_regist';
+$route ['login/check'] = 'encryptcontroller/check';
+
 //Auth
