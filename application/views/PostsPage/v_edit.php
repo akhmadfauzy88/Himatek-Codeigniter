@@ -40,15 +40,6 @@
 				  </div>
 				</div>	
 			</div>
-			<div class="col-md-3">
-				<div class="card">
-				  <div class="card-body" align="center">
-				    <h5 align="left">Hello Guest</h5>
-				    <hr>
-				    <span class="centered"><a href="#" class="btn btn-success">Login</a></span>
-				  </div>
-				</div>	
-			</div>
 
 		</div>
 	</div>

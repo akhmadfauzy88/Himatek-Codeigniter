@@ -15,6 +15,13 @@
                     <hr>
                     <label>URL => <a href="<?php echo site_url('blog/'.$posts['slug']) ?>" target="_blank"><?php echo site_url('blog/'.$posts['slug']) ?></a> </label>
                     <br>
+                    <label>Category => <?php if($posts['category'] == NULL){
+                        echo "Uncategorized";
+                    }else{
+                        echo $cate['nama'];
+                    } //echo $posts['category'];
+                    ?> </label>
+                    <br>
                     <label>Upload => <?php echo date('j F Y H:i:s', strtotime($posts['created_at'])); ?></label>
                     <br>
                     <label>Edit => <?php echo date('j F Y H:i:s', strtotime($posts['updated_at'])); ?></label>
@@ -23,15 +30,6 @@
                     <a href="<?php echo site_url('posts/delete/'.$posts['id']) ?>" class="btn btn-danger btn-block">Delete</a>
                     <hr>
 
-                  </div>
-                </div>  
-            </div>
-            <div class="col-md-3">
-                <div class="card">
-                  <div class="card-body" align="center">
-                    <h5 align="left">Hello Guest</h5>
-                    <hr>
-                    <span class="centered"><a href="#" class="btn btn-success">Login</a></span>
                   </div>
                 </div>  
             </div>

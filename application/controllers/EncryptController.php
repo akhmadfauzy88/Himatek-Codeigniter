@@ -24,7 +24,7 @@ class EncryptController extends CI_Controller {
 		$password = $this->input->post('password');
 
 		$this->form_validation->set_rules(
-            'email', 
+            'username', 
             'Email', 
             'required'
         );
@@ -41,13 +41,23 @@ class EncryptController extends CI_Controller {
             redirect('login');
         }else{
         	$data['user'] = $this->users->get_user($username);
+        	$hash_pass = $data['user']['password'];
 
-			if($password == $this->encryption->decrypt($data['user']['password'])){
-				echo "Berhasil";
-				echo "<br>";
-				echo $password;
+        	// echo $data['user']['password'].'<br>';
+        	// echo $password.'<br>';
+
+			if(password_verify($password, $hash_pass)){
+				$data_login = array(
+                                'username'  => $username,
+                                'nama'     => $data['user']['nama'],
+                                'logged_in' => TRUE
+                            );
+
+                $this->session->set_userdata('spicy_chicken', $data_login);
+                redirect('posts');
 			}else{
-				echo "gagal";
+                $this->session->set_flashdata('message', 'Login gagal !!');
+				redirect('login');
 			}
         }
 
@@ -79,7 +89,7 @@ class EncryptController extends CI_Controller {
 
         if ($this->form_validation->run() === FALSE)
         {
-        	$this->session->set_flashdata('message', 'Konfirmasi password tidak sama !!');
+        	$this->session->set_flashdata('error', 'Konfirmasi password tidak sama !!');
             redirect('regist');
         }else{
         	$this->users->insert_users();
@@ -87,4 +97,27 @@ class EncryptController extends CI_Controller {
         	redirect('regist');
         }
 	}
+
+    public function logout()
+    {
+
+        $this->form_validation->set_rules(
+            'chicken_wings', 
+            'chicken_wings', 
+            'required'
+        );
+
+        if ($this->form_validation->run() === FALSE)
+        {
+            show_404();
+            // echo $this->input->post('chicken_wings');
+        }else{
+            if (isset($_SESSION['spicy_chicken']) && $_SESSION['spicy_chicken']['logged_in'] == TRUE) {
+                $this->session->sess_destroy();
+            redirect('/');
+            }else{
+                redirect('login');
+            }
+        }
+    }
 }

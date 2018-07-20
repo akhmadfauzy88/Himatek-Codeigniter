@@ -24,6 +24,27 @@ class Posts extends CI_Model {
 
         }
 
+        //Reserved for Category Function
+        public function get_cat()
+        {
+        	$this->db->select('nama');
+			$this->db->from('categories');
+			$this->db->join('posts', 'posts.category = categories.id');
+			$query = $this->db->get();
+
+			return $query->row_array();
+        }
+
+        //End Reserved
+
+        public function get_recent()
+        {
+        	$this->db->order_by('id', 'DESC');
+        	$query = $this->db->get('posts', 3);
+
+	        return $query->result_array();
+        }
+
         public function insert_posts()
         {
         	$date = date("Y-m-d H:i:s");

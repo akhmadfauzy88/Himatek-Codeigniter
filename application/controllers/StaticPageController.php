@@ -33,6 +33,7 @@ class StaticPageController extends CI_Controller {
 	{
 
 		$data['posts'] = $this->posts->get_posts($slug);
+		$data['recent'] = $this->posts->get_recent();
 		$data['Judul'] = $data['posts']['judul'];
 
 		if($data['posts']['slug'] == NULL){

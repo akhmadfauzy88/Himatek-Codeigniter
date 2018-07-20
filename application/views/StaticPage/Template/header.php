@@ -24,11 +24,13 @@
 					<a href="#">Contact</a>
 					<a href="#">HimatekOS</a>
 					<hr>
-
-					<br>
-					<label style="word-spacing: 1px;">Auth Nav</label>
-					<hr>
-					<a href="<?php echo base_url(); ?>posts">Posts</a>					
+					<?php if(isset($_SESSION['spicy_chicken']) && $_SESSION['spicy_chicken']['logged_in'] == TRUE): ?>
+						<br>
+						<label style="word-spacing: 1px;">Auth Nav</label>
+						<hr>
+						<a href="<?php echo base_url(); ?>posts">Posts</a>
+						<a href="<?php echo base_url(); ?>categories">Categories</a>					
+					<?php endif; ?>
 				</div>
 				<hr>
 			</div>

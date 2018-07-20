@@ -18,7 +18,7 @@ class Users extends CI_Model {
 		$data = array(
 			'email' => $this->input->post('email'),
 			'nama' => $this->input->post('nama'),
-			'password' => $this->encryption->encrypt($this->input->post('password')),
+			'password' => password_hash($this->input->post('password'), PASSWORD_DEFAULT, ['cost' => '10']),
 			'created_at' => $date,
 			'updated_at' => $date
 		);

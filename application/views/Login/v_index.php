@@ -17,9 +17,10 @@
 					
 					<?php echo form_open('login/check', ['data-parsley-validate' => '']); ?>
 						<?php echo form_input(['name' => 'username', 'class' => 'form-control', 'placeholder' => 'Email', 'id' => 'login', 'required' => '', 'type' => 'email']) ?>
-						<?php echo form_password(['name' => 'password', 'class' => 'form-control', 'placeholder' => 'Password', 'id' => 'login', 'required' => '']) ?>
+						<?php echo form_password(['name' => 'password', 'class' => 'form-control', 'placeholder' => 'Password', 'id' => 'login', 'required' => '', 'minlength' => '6']) ?>
 						<?php echo form_submit(['value' => 'Login', 'class' => 'btn btn-success btn-block']) ?>
 					<?php echo form_close(); ?>	
+					
 				</div>
 			</div>
 		</div>

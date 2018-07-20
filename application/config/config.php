@@ -3,6 +3,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 /*
 |--------------------------------------------------------------------------
+| Timezone
+|--------------------------------------------------------------------------
+|Set Timezone lel
+|
+*/
+date_default_timezone_set('Asia/Jakarta');
+
+/*
+|--------------------------------------------------------------------------
 | Base Site URL
 |--------------------------------------------------------------------------
 |
@@ -377,10 +386,10 @@ $config['encryption_key'] = '8057AD9DF451347BA6235CE6E80F815C4D583881';
 | except for 'cookie_prefix' and 'cookie_httponly', which are ignored here.
 |
 */
-$config['sess_driver'] = 'files';
-$config['sess_cookie_name'] = 'ci_session';
+$config['sess_driver'] = 'database';
+$config['sess_cookie_name'] = 'spicy_sessions';
 $config['sess_expiration'] = 600;
-$config['sess_save_path'] = NULL;
+$config['sess_save_path'] = 'ci_sessions';
 $config['sess_match_ip'] = FALSE;
 $config['sess_time_to_update'] = 300;
 $config['sess_regenerate_destroy'] = FALSE;
@@ -449,8 +458,8 @@ $config['global_xss_filtering'] = TRUE;
 | 'csrf_exclude_uris' = Array of URIs which ignore CSRF checks
 */
 $config['csrf_protection'] = TRUE;
-$config['csrf_token_name'] = 'simple_security';
-$config['csrf_cookie_name'] = 'bukan_urusan_ente_seriusan';
+$config['csrf_token_name'] = 'spicy_chicken_wings';
+$config['csrf_cookie_name'] = 'red_hot_chicken_wings';
 $config['csrf_expire'] = 7200;
 $config['csrf_regenerate'] = TRUE;
 $config['csrf_exclude_uris'] = array();

@@ -56,9 +56,22 @@
 			<div class="col-md-3">
 				<div class="card">
 				  <div class="card-body" align="center">
-				    <h5 align="left">Hello Guest</h5>
-				    <hr>
-				    <span class="centered"><a href="#" class="btn btn-success">Login</a></span>
+				    <?php if(isset($_SESSION['spicy_chicken'])): ?>
+				    	<h5 align="left">Hello <?php echo $_SESSION['spicy_chicken']['nama'] ?></h5>
+				    	<hr>
+				    	<span class="centered">
+				    		<a href="<?php base_url() ?>logout" class="btn btn-danger">
+				    			<?php echo form_open('logout') ?>
+				    				<?php echo form_input(['name' => 'chicken_wings', 'type' => 'hidden', 'value' => $this->encryption->encrypt('113')])?>
+				    				<?php echo form_submit(['value' => 'Logout', 'class' => 'btn btn-danger btn-block']); ?>
+				    			<?php echo form_close() ?>
+				    		</a>
+				    	</span>
+				    <?php else: ?>
+				    	<h5 align="left">Hello Guest</h5>
+				    	<hr>
+				    	<span class="centered"><a href="<?php echo base_url() ?>login" class="btn btn-success">Login</a></span>
+					<?php endif; ?>
 				  </div>
 				</div>	
 			</div>

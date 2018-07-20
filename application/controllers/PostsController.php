@@ -7,6 +7,11 @@ class PostsController extends CI_Controller {
     {
     	 parent::__construct();
         $this->load->model('posts');
+        if (isset($_SESSION['spicy_chicken']) && $_SESSION['spicy_chicken']['logged_in'] == TRUE) {
+            
+        }else{
+            show_404();
+        }
     }
 
     public function index()
@@ -22,6 +27,7 @@ class PostsController extends CI_Controller {
     public function view($id)
     {
     	$data['posts'] = $this->posts->get_posts(NULL, $id);
+        $data['cate'] = $this->posts->get_cat();
 		$data['Judul'] = $data['posts']['judul'];
 
 		$this->load->view('StaticPage/Template/header', $data);

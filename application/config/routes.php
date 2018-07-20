@@ -58,6 +58,14 @@ $route['translate_uri_dashes'] = FALSE;
 $route['about'] = 'staticpagecontroller/about';
 $route['blog/(:any)'] = 'staticpagecontroller/blog/$1';
 
+$route['login'] = 'encryptcontroller';
+$route['regist'] = 'encryptcontroller/regist';
+$route['login/user'] = 'encryptcontroller/user_regist';
+$route['login/check'] = 'encryptcontroller/check';
+$route['logout'] = 'encryptcontroller/logout';
+
+//Auth
+
 $route['posts'] = 'postscontroller';
 $route['posts/view/(:any)'] = 'postscontroller/view/$1';
 $route['posts/create'] = 'postscontroller/create';
@@ -66,9 +74,7 @@ $route['posts/delete/(:any)'] = 'postscontroller/destroy/$1';
 $route['posts/edit/(:any)'] = 'postscontroller/edit/$1';
 $route['posts/edit'] = 'postscontroller/update';
 
-$route['login'] = 'encryptcontroller';
-$route['regist'] = 'encryptcontroller/regist';
-$route ['login/user'] = 'encryptcontroller/user_regist';
-$route ['login/check'] = 'encryptcontroller/check';
-
-//Auth
+$route['categories'] = 'categorycontroller';
+$route['categories/store'] = 'categorycontroller/store';
+$route['categories/update'] = 'categorycontroller/update';
+$route['categories/delete/(:any)'] = 'categorycontroller/delete/$1';
