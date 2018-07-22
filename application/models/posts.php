@@ -25,14 +25,26 @@ class Posts extends CI_Model {
         }
 
         //Reserved for Category Function
-        public function get_cat()
+        public function get_cat($id = FALSE)
         {
-        	$this->db->select('nama');
-			$this->db->from('categories');
-			$this->db->join('posts', 'posts.category = categories.id');
-			$query = $this->db->get();
+        	if ($id === FALSE) {
+        		$this->db->select('nama, categories.id');
+				$this->db->from('categories');
+				$this->db->join('posts', 'posts.category = categories.id');
+				$query = $this->db->get();
 
-			return $query->row_array();
+				return $query->row_array();
+        	}else{
+        		//$id = $this->input->post('id');
+        		$this->db->select('nama, categories.id');
+				$this->db->from('categories');
+				$this->db->join('posts', 'posts.category = categories.id');
+				$this->db->where('posts.id', $id);
+				$query = $this->db->get();
+
+				return $query->row_array();
+        	}
+        	
         }
 
         //End Reserved
@@ -52,7 +64,7 @@ class Posts extends CI_Model {
 				'judul' => $this->input->post('judul'),
 				'slug' => $this->input->post('slug'),
 				'body' => $this->input->post('body'),
-				//'category' => $this->input->post('category'),
+				'category' => $this->input->post('category'),
 				'created_at' => $date,
 				'updated_at' => $date
 			);
@@ -66,7 +78,7 @@ class Posts extends CI_Model {
 			$data = array(
 				'judul' => $this->input->post('judul'),
 				'slug' => $this->input->post('slug'),
-				//'category' => $this->input->post('category'),
+				'category' => $this->input->post('category'),
 				'body' => $this->input->post('body'),
 				'updated_at' => $date
 			);

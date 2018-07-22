@@ -22,7 +22,7 @@
 					<a href="<?php echo base_url(); ?>">Home</a>
 					<a href="<?php echo base_url(); ?>about">About</a>
 					<a href="#">Contact</a>
-					<a href="#">HimatekOS</a>
+					<a href="#" style="color: grey">HimatekOS</a>
 					<hr>
 					<?php if(isset($_SESSION['spicy_chicken']) && $_SESSION['spicy_chicken']['logged_in'] == TRUE): ?>
 						<br>

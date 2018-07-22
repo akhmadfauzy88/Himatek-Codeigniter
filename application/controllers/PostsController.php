@@ -5,8 +5,9 @@ class PostsController extends CI_Controller {
 
 	public function __construct()
     {
-    	 parent::__construct();
+    	parent::__construct();
         $this->load->model('posts');
+        $this->load->model('category');
         if (isset($_SESSION['spicy_chicken']) && $_SESSION['spicy_chicken']['logged_in'] == TRUE) {
             
         }else{
@@ -27,7 +28,7 @@ class PostsController extends CI_Controller {
     public function view($id)
     {
     	$data['posts'] = $this->posts->get_posts(NULL, $id);
-        $data['cate'] = $this->posts->get_cat();
+        $data['cate'] = $this->posts->get_cat($id);
 		$data['Judul'] = $data['posts']['judul'];
 
 		$this->load->view('StaticPage/Template/header', $data);
@@ -38,6 +39,7 @@ class PostsController extends CI_Controller {
     public function create()
     {
     	$data['Judul'] = 'Create New Post';
+        $data['category'] = $this->category->get_cat();
 
     	$this->load->view('StaticPage/Template/header', $data);
 		$this->load->view('PostsPage/v_create');
@@ -69,6 +71,8 @@ class PostsController extends CI_Controller {
     {
     	$data['posts'] = $this->posts->get_posts(NULL, $id);
     	$data['Judul'] = 'Edit Post';
+        $data['category'] = $this->category->get_cat();
+        $data['cate'] = $this->posts->get_cat($id);
 
     	$this->load->view('StaticPage/Template/header', $data);
 		$this->load->view('PostsPage/v_edit');

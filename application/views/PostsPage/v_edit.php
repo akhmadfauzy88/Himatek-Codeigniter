@@ -28,11 +28,11 @@
 	                <?php echo form_input(['name' => 'id', 'type' => 'hidden', 'value' =>  $posts['id']]); ?>
 	                    <?php echo form_input(['name' => 'judul', 'class' => 'form-control', 'value' =>  $posts['judul'] , 'style' => 'margin:0 0 5px 0']); ?>
 	                    <?php echo form_input(['name' => 'slug', 'class' => 'form-control', 'value' => $posts['slug'], 'style' => 'margin:0 0 5px 0']); ?>
-	                    <!--<select name="category" class="form-control" style="margin:0 0 5px 0" placeholder="">
+	                    <select name="category" class="form-control" style="margin:0 0 5px 0" placeholder="">
 	                        <?php foreach($category as $cat): ?>
 	                            <option value="<?php echo $cat['id'] ?>" <?php if($cate['id'] == $cat['id']){echo "selected";} ?>><?php echo $cat['nama'] ?></option>
 	                        <?php endforeach; ?>
-	                    </select> -->
+	                    </select>
 	                    <?php echo form_textarea(['name' => 'body', 'class' => 'form-control', 'value' => $posts['body'], 'style' => 'margin:0 0 5px 0']); ?>
 	                    <?php echo form_submit(['value' => 'Update', 'class' => 'btn btn-primary btn-block', 'style' => 'margin-top:5px;']); ?>
 	                <?php echo form_close(); ?>

@@ -27,11 +27,11 @@
 				  	<?php echo form_open('posts/store', ['data-parsley-validate' => '']); ?>
                     	<?php echo form_input(['name' => 'judul', 'class' => 'form-control', 'placeholder' => 'Judul', 'style' => 'margin:0 0 5px 0', 'required' => '', 'minlength' => '5']); ?>
                    		<?php echo form_input(['name' => 'slug', 'class' => 'form-control', 'placeholder' => 'Url (Misal : posting-singkat)', 'style' => 'margin:0 0 5px 0', 'required' => '', 'minlength' => '5']); ?>
-                    <!-- <select name="category" class="form-control" style="margin:0 0 5px 0">
+                     	<select name="category" class="form-control" style="margin:0 0 5px 0">
                         <?php foreach($category as $cat): ?>
                             <option value="<?php echo $cat['id'] ?>"><?php echo $cat['nama'] ?></option>
                         <?php endforeach; ?>
-                    	</select> -->
+                    	</select>
                     <?php echo form_textarea(['name' => 'body', 'class' => 'form-control', 'placeholder' => 'Isi Konten', 'style' => 'margin:0 0 5px 0', 'required' => '']); ?>
                     <?php echo form_submit(['value' => 'Post', 'class' => 'btn btn-success btn-block', 'style' => 'margin-top:5px;']); ?>
                 	<?php echo form_close(); ?>
