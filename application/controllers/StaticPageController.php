@@ -5,8 +5,9 @@ class StaticPageController extends CI_Controller {
 
 	public function __construct()
     {
-    	 parent::__construct();
+    	parent::__construct();
         $this->load->model('posts');
+        $this->load->model('comment');
     }
 
 	public function index()
@@ -31,18 +32,21 @@ class StaticPageController extends CI_Controller {
 
 	public function blog($slug)
 	{
-
 		$data['posts'] = $this->posts->get_posts($slug);
 		$data['recent'] = $this->posts->get_recent();
 		$data['Judul'] = $data['posts']['judul'];
+		
+		$id = $data['posts']['id'];
+
 		$data['cate'] = $this->posts->get_cat(NULL, $slug);
+		$data['commen'] = $this->comment->show_comment($id);
 
 		if($data['posts']['slug'] == NULL){
 			show_404();
 		}
 
 		$this->load->view('StaticPage/Template/header', $data);
-		$this->load->view('StaticPage/v_blog', $data);
+		$this->load->view('StaticPage/v_blog');
 		$this->load->view('StaticPage/Template/footer');
 	}
 }

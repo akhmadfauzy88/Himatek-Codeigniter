@@ -21,23 +21,43 @@
 				<div class="card">
 				  <div class="card-body">
 				    
-				    <div class="comment">
-					<h3>1 Comment </h3>
 
+				    <div class="comment">
+					<h3><?php echo $commen['total']; ?> Comment </h3>
+
+					<?php foreach ($commen['komen'] as $com): ?>
 					<div class="comment-show">
 						<div class="person">
 							<div class="comment-img"></div>
 							<h5>
-								Akhmad Fauzy Epriliawan
+								<?php echo $com['nama']; ?>
 								<br>
-								<small>2 Juni 2018</small>
+								<small><?php echo date('j F Y', strtotime($com['created_at'])); ?></small>
 							</h5>
 						</div>
 						<p class="lead">
-							Ini contoh komentar
+							<?php echo $com['comment']; ?>
 						</p>
 					</div>
+					<?php endforeach; ?>
 					<hr>
+					<div class="notif">
+						<?php $error =  $this->session->flashdata('message');?>
+				  		<?php if(isset($error)): ?>
+				  		<div class="alert alert-success" role="alert">
+						  <?php echo $error; ?>
+						</div>
+						<?php endif ?>
+				  	</div>
+					<?php echo form_open('comment/store') ?>
+						<?php echo form_input(['name' => 'id', 'type' => 'hidden', 'value' => $posts['id']])?>
+						<?php echo form_input(['name' => 'slug', 'type' => 'hidden', 'value' => $posts['slug']])?>
+                        <?php echo form_input(['name' => 'email', 'class' => 'form-control', 'placeholder' => 'Email*', 'style' => 'margin: 0 0 5px 0;'])?>
+                        <?php echo form_input(['name' => 'nama', 'class' => 'form-control', 'placeholder' => 'Nama*', 'style' => 'margin: 0 0 5px 0;'])?>
+                        <?php echo form_textarea(['name' => 'comment', 'class' => 'form-control', 'placeholder' => 'Komentar*', 'style' => 'margin:0 0 5px 0', 'required' => '']); ?>
+                        <?php echo form_submit(['value' => 'Comment', 'class' => 'btn btn-success btn-block']); ?>
+                    <?php echo form_close() ?>
+                    <small style="color:grey">*Required (Email tidak akan dipublish)</small>
 					</div>
 				   
 

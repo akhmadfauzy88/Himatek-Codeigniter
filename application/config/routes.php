@@ -65,6 +65,8 @@ $route['login/user'] = 'encryptcontroller/user_regist';
 $route['login/check'] = 'encryptcontroller/check';
 $route['logout'] = 'encryptcontroller/logout';
 
+$route['comment/store'] = 'commentcontroller/store';
+
 //Auth
 
 $route['posts'] = 'postscontroller';
