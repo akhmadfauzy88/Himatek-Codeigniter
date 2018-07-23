@@ -16,6 +16,32 @@
 				    	<?php echo htmlspecialchars(strip_tags($posts['body'])); ?>
 				    </p>
 				  </div>
+				</div>
+				<br>
+				<div class="card">
+				  <div class="card-body">
+				    
+				    <div class="comment">
+					<h3>1 Comment </h3>
+
+					<div class="comment-show">
+						<div class="person">
+							<div class="comment-img"></div>
+							<h5>
+								Akhmad Fauzy Epriliawan
+								<br>
+								<small>2 Juni 2018</small>
+							</h5>
+						</div>
+						<p class="lead">
+							Ini contoh komentar
+						</p>
+					</div>
+					<hr>
+					</div>
+				   
+
+				  </div>
 				</div>	
 			</div>
 			<div class="col-md-3">
