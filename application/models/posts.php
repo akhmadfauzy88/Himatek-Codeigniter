@@ -25,7 +25,7 @@ class Posts extends CI_Model {
         }
 
         //Reserved for Category Function
-        public function get_cat($id = FALSE)
+        public function get_cat($id = FALSE, $slug = FALSE)
         {
         	if ($id === FALSE) {
         		$this->db->select('nama, categories.id');
@@ -35,14 +35,24 @@ class Posts extends CI_Model {
 
 				return $query->row_array();
         	}else{
-        		//$id = $this->input->post('id');
-        		$this->db->select('nama, categories.id');
-				$this->db->from('categories');
-				$this->db->join('posts', 'posts.category = categories.id');
-				$this->db->where('posts.id', $id);
-				$query = $this->db->get();
+        		if ($id === NULL) {
+        			$this->db->select('nama, categories.id');
+					$this->db->from('categories');
+					$this->db->join('posts', 'posts.category = categories.id');
+					$this->db->where('posts.slug', $slug);
+					$query = $this->db->get();
 
-				return $query->row_array();
+					return $query->row_array();
+        		}else{
+        			$this->db->select('nama, categories.id');
+					$this->db->from('categories');
+					$this->db->join('posts', 'posts.category = categories.id');
+					$this->db->where('posts.id', $id);
+					$query = $this->db->get();
+
+					return $query->row_array();
+        		}
+        		
         	}
         	
         }

@@ -35,6 +35,7 @@ class StaticPageController extends CI_Controller {
 		$data['posts'] = $this->posts->get_posts($slug);
 		$data['recent'] = $this->posts->get_recent();
 		$data['Judul'] = $data['posts']['judul'];
+		$data['cate'] = $this->posts->get_cat(NULL, $slug);
 
 		if($data['posts']['slug'] == NULL){
 			show_404();

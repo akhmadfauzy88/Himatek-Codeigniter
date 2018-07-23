@@ -6,7 +6,10 @@
 				<div class="card">
 				  <div class="card-body">
 				    <h3><?php echo htmlspecialchars(strip_tags($posts['judul'])); ?></h3>
-				    <small class="no-mg">Posted <?php echo date('j F Y', strtotime($posts['created_at'])) ?> By Admin</small>
+				    <small class="no-mg">Posted <?php echo date('j F Y', strtotime($posts['created_at'])) ?> By Admin In <?php if ($posts['category'] == NULL) {
+				    	echo "Uncategorized";
+				    }else{
+				    	echo $cate['nama']; } ?> Category</small>
 				    <hr class="no-mg-top">
 				    <div class="img-featured-post"></div>
 				    <p class="lead" id="body">
