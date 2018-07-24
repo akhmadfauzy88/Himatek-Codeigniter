@@ -40,6 +40,7 @@ class StaticPageController extends CI_Controller {
 
 		$data['cate'] = $this->posts->get_cat(NULL, $slug);
 		$data['commen'] = $this->comment->show_comment($id);
+		$data['author'] = $this->posts->get_author($slug);
 
 		if($data['posts']['slug'] == NULL){
 			show_404();

@@ -7,7 +7,7 @@
 				  <div class="card-body">
 				  	<?php foreach($posts as $post): ?>
 				    	<h3><?php echo $post['judul']; ?></h3>
-				    	<small class="no-mg">Posted <?php echo date('j F Y', strtotime($post['created_at'])) ?> By Admin</small>
+				    	<small class="no-mg">Posted <?php echo date('j F Y', strtotime($post['created_at'])) ?></small>
 				    	<hr class="no-mg-top">
 				    	<div class="img-featured"></div>
 				    	<p class="lead" id="body">

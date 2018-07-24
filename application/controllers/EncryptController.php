@@ -49,7 +49,8 @@ class EncryptController extends CI_Controller {
 			if(password_verify($password, $hash_pass)){
 				$data_login = array(
                                 'username'  => $username,
-                                'nama'     => $data['user']['nama'],
+                                'id'        =>  $data['user']['id'],
+                                'nama'      => $data['user']['nama'],
                                 'logged_in' => TRUE
                             );
 

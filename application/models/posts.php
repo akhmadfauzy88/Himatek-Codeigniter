@@ -24,6 +24,17 @@ class Posts extends CI_Model {
 
         }
 
+        public function get_author($slug)
+        {
+        	$this->db->select('nama');
+			$this->db->from('users');
+			$this->db->join('posts', 'posts.author = users.id');
+			$this->db->where('posts.slug', $slug);
+			$query = $this->db->get();
+
+			return $query->row_array();
+        }
+
         //Reserved for Category Function
         public function get_cat($id = FALSE, $slug = FALSE)
         {
@@ -74,6 +85,7 @@ class Posts extends CI_Model {
 				'judul' => $this->input->post('judul'),
 				'slug' => $this->input->post('slug'),
 				'body' => $this->input->post('body'),
+				'author' => $_SESSION['spicy_chicken']['id'],
 				'category' => $this->input->post('category'),
 				'created_at' => $date,
 				'updated_at' => $date
