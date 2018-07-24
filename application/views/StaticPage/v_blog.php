@@ -6,11 +6,14 @@
 				<div class="card">
 				  <div class="card-body">
 				    <h3><?php echo htmlspecialchars(strip_tags($posts['judul'])); ?></h3>
-				    <small class="no-mg">Posted <?php echo date('j F Y', strtotime($posts['created_at'])) ?> By <?php echo $author['nama']; ?> In <?php if ($posts['category'] == NULL) {
+				    <small class="no-mg">
+				    	<img src="<?php echo base_url();?>assets/img/icon/calendar.png" width="20px"> <?php echo date('j F Y', strtotime($posts['created_at'])) ?> 
+				    	<img src="<?php echo base_url();?>assets/img/icon/user.png" width="20px"> <?php echo $author['nama']; ?> 
+				    	<img src="<?php echo base_url();?>assets/img/icon/category.png" width="20px"> <?php if ($posts['category'] == NULL) {
 				    	echo "Uncategorized";
 				    }else{
 				    	echo $cate['nama']; } ?> Category</small>
-				    <hr class="no-mg-top">
+				    <hr class="">
 				    <div class="img-featured-post"></div>
 				    <p class="lead" id="body">
 				    	<?php echo htmlspecialchars(strip_tags($posts['body'])); ?>
@@ -23,7 +26,7 @@
 				    
 
 				    <div class="comment">
-					<h3><?php echo $commen['total']; ?> Comment </h3>
+					<h3> <?php echo $commen['total']; ?> Comment</h3>
 
 					<?php foreach ($commen['komen'] as $com): ?>
 					<div class="comment-show">

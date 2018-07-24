@@ -7,8 +7,8 @@
 				  <div class="card-body">
 				  	<?php foreach($posts as $post): ?>
 				    	<h3><?php echo $post['judul']; ?></h3>
-				    	<small class="no-mg">Posted <?php echo date('j F Y', strtotime($post['created_at'])) ?></small>
-				    	<hr class="no-mg-top">
+				    	<small class="no-mg"><img src="<?php echo base_url();?>assets/img/icon/calendar.png" width="20px"> <?php echo date('j F Y', strtotime($post['created_at'])) ?></small>
+				    	<hr class="">
 				    	<div class="img-featured"></div>
 				    	<p class="lead" id="body">
 				    		<?php echo substr(htmlspecialchars(strip_tags($post['body'])),0,300); ?>
